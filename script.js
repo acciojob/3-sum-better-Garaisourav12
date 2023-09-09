@@ -35,7 +35,7 @@ function threeSum(arr, target) {
 			close = temp;
 		}
 	}
-	return temp;
+	return close;
 }
 
 module.exports = threeSum;
