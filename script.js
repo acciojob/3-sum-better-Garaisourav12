@@ -1,36 +1,22 @@
-
-
 function threeSum(arr, target) {
 // write your code here
-	// arr.sort((a, b) => a-b);
-	// let close;
-	// let n = arr.length;
-	// let diff = Number.MAX_VALUE;
-	// for(let i = 0; i<n-2; i++){
-	// 	let temp = arr[i] + twosum(arr, n, i+1, target-arr[i]);
-	// 	if(Math.abs(temp) < diff){
-	// 		close = temp;
-	// 	}
-	// }
-	// return close;
-	if (nums.length < 3) {
-    return null; // Not enough elements to form a sum of three integers
-  }
+	arr.sort((a, b) => a - b);
 
-  nums.sort((a, b) => a - b); // Sort the array in ascending order
-  let closestSum = nums[0] + nums[1] + nums[2];
+  let closestSum = arr[0] + arr[1] + arr[2]; // Initialize with the sum of the first three elements
 
-  for (let i = 0; i < nums.length - 2; i++) {
+  for (let i = 0; i < arr.length - 2; i++) {
     let left = i + 1;
-    let right = nums.length - 1;
+    let right = arr.length - 1;
 
     while (left < right) {
-      const currentSum = nums[i] + nums[left] + nums[right];
+      const currentSum = arr[i] + arr[left] + arr[right];
 
+      // Check if the current sum is closer to the target than the previously closest sum
       if (Math.abs(currentSum - target) < Math.abs(closestSum - target)) {
         closestSum = currentSum;
       }
 
+      // Adjust the pointers based on the comparison with the target
       if (currentSum < target) {
         left++;
       } else {
